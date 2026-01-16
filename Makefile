@@ -48,7 +48,7 @@ development: build
 only_build: build
 # Prepare the workspace for building the provider and SDKs
 # Importantly this is run by CI ahead of restoring the bin directory and resuming SDK builds
-prepare_local_workspace: .make/mise_install upstream
+prepare_local_workspace: .make/mise_install
 prepare_local_workspace: | mise_env
 # Creates all generated files which need to be committed
 generate: generate_sdks schema
@@ -97,7 +97,6 @@ help:
 	@echo "Internal Targets (automatically run as dependencies of other targets)"
 	@echo "  prepare_local_workspace  Prepare for building"
 	@echo "  mise_install             Install tools with mise"
-	@echo "  upstream                 Initialize the upstream submodule, if present"
 	@echo ""
 	@echo "Language-Specific Targets"
 	@echo "  generate_[language]    Generate the SDK files ready for committing"
@@ -214,11 +213,11 @@ install_nodejs_sdk: .make/install_nodejs_sdk
 install_python_sdk:
 .PHONY: install_dotnet_sdk install_go_sdk install_java_sdk install_nodejs_sdk install_python_sdk
 
-lint_provider: upstream
+lint_provider:
 	cd provider && golangci-lint run --path-prefix provider -c ../.golangci.yml
 # `lint_provider.fix` is a utility target meant to be run manually
 # that will run the linter and fix errors when possible.
-lint_provider.fix: upstream
+lint_provider.fix:
 	cd provider && golangci-lint run --path-prefix provider -c ../.golangci.yml --fix
 .PHONY: lint_provider lint_provider.fix
 build_provider_cmd = VERSION=${VERSION_GENERIC} ./scripts/minimal_schema.sh;cd provider && GOOS=$(1) GOARCH=$(2) CGO_ENABLED=0 go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o "$(3)" -ldflags "$(LDFLAGS)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(PROVIDER)
@@ -256,26 +255,18 @@ tfgen_no_deps: .make/schema
 .make/schema: export PULUMI_CONVERT_EXAMPLES_CACHE_DIR := $(WORKING_DIR)/.pulumi/examples-cache
 .make/schema: export PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION := $(PULUMI_CONVERT)
 .make/schema: export PULUMI_MISSING_DOCS_ERROR := $(PULUMI_MISSING_DOCS_ERROR)
-.make/schema: bin/$(CODEGEN) .make/mise_install .make/upstream
+.make/schema: bin/$(CODEGEN) .make/mise_install
 .make/schema: | mise_env
 	$(WORKING_DIR)/bin/$(CODEGEN) schema --out provider/cmd/$(PROVIDER)
 	(cd provider && VERSION=$(PROVIDER_VERSION) go generate cmd/$(PROVIDER)/main.go)
 	@touch $@
 tfgen_build_only: bin/$(CODEGEN)
-bin/$(CODEGEN): provider/*.go provider/go.* .make/upstream
+bin/$(CODEGEN): provider/*.go provider/go.*
 	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(CODEGEN) -ldflags "$(LDFLAGS_PROJ_VERSION) $(LDFLAGS_EXTRAS)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(CODEGEN))
 .PHONY: tfgen schema tfgen_no_deps tfgen_build_only
 
 # Apply patches to the upstream submodule, if it exists
-upstream: .make/upstream
-# Re-run if the upstream commit or the patches change.
-.make/upstream: $(wildcard patches/*) $(shell ./scripts/upstream.sh file_target)
-	./scripts/upstream.sh init
-	# Ensure tool is installed
-	cd upstream-tools && yarn install --frozen-lockfile
-	# Apply all automated changes
-	cd upstream-tools && yarn --silent run apply
-	@touch $@
+upstream:
 .PHONY: upstream
 
 # To make an immediately observable change to .ci-mgmt.yaml:
