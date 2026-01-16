@@ -101,7 +101,7 @@ Always reference these instructions first and fallback to search or bash command
 ### Repository Root Contents:
 ```
 .ci-mgmt.yaml          -- CI management configuration
-.devcontainer/         -- Dev container setup  
+.devcontainer/         -- Dev container setup
 .github/               -- GitHub workflows and templates
 .gitmodules           -- Git submodule configuration
 .golangci.yml         -- Go linter configuration
@@ -109,7 +109,6 @@ Always reference these instructions first and fallback to search or bash command
 CONTRIBUTING.md       -- Contribution guidelines
 Makefile              -- Build orchestration with all available targets
 README.md             -- Project documentation
-devbox.json           -- Development environment
 provider/             -- Go provider implementation
 scripts/              -- Build utilities
 sdk/                  -- Generated SDKs (managed via make targets)
