@@ -115,6 +115,8 @@ jobs:
         CODECOV_TOKEN: ${{ steps.esc-secrets.outputs.CODECOV_TOKEN }}
     - if: inputs.is_pr
       name: Check Schema is Valid
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
         {

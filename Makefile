@@ -214,11 +214,15 @@ install_python_sdk:
 .PHONY: install_dotnet_sdk install_go_sdk install_java_sdk install_nodejs_sdk install_python_sdk
 
 lint_provider:
+	git grep -l 'go:embed' -- provider | xargs perl -i -pe 's/go:embed/ goembed/g'
 	cd provider && golangci-lint run --path-prefix provider -c ../.golangci.yml
+	git grep -l 'goembed' -- provider | xargs perl -i -pe 's/ goembed/go:embed/g'
 # `lint_provider.fix` is a utility target meant to be run manually
 # that will run the linter and fix errors when possible.
 lint_provider.fix:
+	git grep -l 'go:embed' -- provider | xargs perl -i -pe 's/go:embed/ goembed/g'
 	cd provider && golangci-lint run --path-prefix provider -c ../.golangci.yml --fix
+	git grep -l 'goembed' -- provider | xargs perl -i -pe 's/ goembed/go:embed/g'
 .PHONY: lint_provider lint_provider.fix
 build_provider_cmd = VERSION=${VERSION_GENERIC} ./scripts/minimal_schema.sh;cd provider && GOOS=$(1) GOARCH=$(2) CGO_ENABLED=0 go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o "$(3)" -ldflags "$(LDFLAGS)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(PROVIDER)
 

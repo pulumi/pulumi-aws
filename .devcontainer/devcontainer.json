@@ -1,5 +1,5 @@
 {
-  "name": "Devbox Remote Container",
+  "name": "Provider Dev Container",
   "build": {
     "dockerfile": "./Dockerfile",
     "context": ".."
@@ -7,10 +7,8 @@
   "customizations": {
     "vscode": {
       "settings": {},
-      "extensions": [
-        "jetpack-io.devbox"
-      ]
+      "extensions": []
     }
   },
-  "remoteUser": "devbox"
+  "remoteUser": "root"
 }
